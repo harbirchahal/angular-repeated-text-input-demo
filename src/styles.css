@@ -1,1 +1,10 @@
 /* Add application styles & imports to this file! */
+
+html, body {
+  height: 100%;
+}
+
+body {
+  width: 90%;
+  margin: auto;
+}
