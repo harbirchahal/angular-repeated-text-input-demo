@@ -1,7 +1,41 @@
 <header>
-	<p-toolbar styleClass="text-2xl">
+  <p-toolbar styleClass="text-2xl">
     Angular Repeated Text Input Demo
   </p-toolbar>
 </header>
-<main>
+<main class="mt-3">
+  <div class="flex justify-content-between">
+    <p-tabView class="flex-grow-1" (onChange)="tabChange($event.index)">
+      <p-tabPanel header="Repeated Pair">
+        <app-repeated-pair-demo
+          #repeatedPairDemo
+          (valueChanges)="valueChange(0, $event)"
+        ></app-repeated-pair-demo>
+      </p-tabPanel>
+      <p-tabPanel header="Nested Pair">
+        <app-nested-pair-demo
+          #nestedPairDemo
+          (valueChanges)="valueChange(1, $event)"
+        ></app-nested-pair-demo>
+      </p-tabPanel>
+    </p-tabView>
+    <div class="ml-3 mt-6">
+      <button
+        pButton
+        icon="pi pi-refresh"
+        class="p-button-icon p-button-sm p-button-secondary mr-1"
+        (click)="refreshData()"
+      ></button>
+      <button
+        pButton
+        icon="pi pi-times"
+        class="p-button-icon p-button-sm p-button-secondary"
+        (click)="clearData()"
+      ></button>
+    </div>
+  </div>
+  <p-divider></p-divider>
+  <div>
+    <pre>{{ output }}</pre>
+  </div>
 </main>
