@@ -1,0 +1,50 @@
+<p-tree
+  [value]="treeNodes"
+  [selection]="selectedNode"
+  styleClass="border-none p-0"
+>
+  <ng-template let-node pTemplate="default">
+    <div
+      class="flex mb-1"
+      [ngClass]="{ 'align-items-baseline': !node.children }"
+    >
+      <div class="flex mr-1" [ngClass]="{ 'flex-column': fieldGrid }">
+        <input
+          pInputText
+          type="text"
+          class="m-1"
+          [(ngModel)]="node.data.key"
+          (ngModelChange)="ngModelChange()"
+        />
+        <input
+          pInputText
+          *ngIf="!node.children"
+          type="text"
+          class="m-1"
+          [(ngModel)]="node.data.value"
+          (ngModelChange)="ngModelChange()"
+        />
+      </div>
+      <button
+        pButton
+        *ngIf="isRootNode(node)"
+        icon="pi pi-plus-circle"
+        class="sibling-btn p-button-icon p-button-text m-1"
+        (click)="addSiblingNode()"
+      ></button>
+      <button
+        pButton
+        icon="pi pi-plus"
+        class="p-button-icon p-button-text m-1"
+        (click)="addChildNode(node)"
+      ></button>
+      <button
+        pButton
+        *ngIf="!isRootNode(node)"
+        icon="pi pi-minus"
+        class="p-button-icon p-button-text m-1"
+        (click)="removeNode(node)"
+      ></button>
+    </div>
+  </ng-template>
+</p-tree>

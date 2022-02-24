@@ -1,0 +1,37 @@
+<div [formGroup]="pairForm">
+  <div
+    formArrayName="pairs"
+    *ngFor="let control of controls; let i = index; let isFirst = first"
+  >
+    <div [formGroupName]="i" class="flex mb-1">
+      <div class="flex mr-1" [ngClass]="{ 'flex-column': fieldGrid }">
+        <input
+          pInputText
+          type="text"
+          class="m-1"
+          formControlName="key"
+        />
+        <input
+          pInputText
+          type="text"
+          class="m-1"
+          formControlName="value"
+        />
+      </div>
+      <button
+        pButton
+        *ngIf="isFirst"
+        icon="pi pi-plus"
+        class="p-button-icon p-button-text m-1"
+        (click)="addItem()"
+      ></button>
+      <button
+        pButton
+        *ngIf="!isFirst"
+        icon="pi pi-minus"
+        class="p-button-icon p-button-text m-1"
+        (click)="removeAt(i)"
+      ></button>
+    </div>
+  </div>
+</div>
