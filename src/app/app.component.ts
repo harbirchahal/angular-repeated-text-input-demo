@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
-import { ValuePair, valuePairObjectify } from '@app/shared/models';
+import { ValuePair, valuePairObjectify } from './shared/models';
 
 interface DemoComponent {
   refreshData();

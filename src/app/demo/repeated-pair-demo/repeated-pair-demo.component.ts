@@ -6,7 +6,7 @@ import {
   Output,
 } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { ValuePair, valuePairParse } from '@app/shared/models';
+import { ValuePair, valuePairParse } from '../../shared/models';
 
 @Component({
   selector: 'app-repeated-pair-demo',

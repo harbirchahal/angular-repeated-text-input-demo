@@ -1,5 +1,5 @@
-import { ValuePair } from '@app/shared/models';
 import { TreeNode } from 'primeng/api';
+import { ValuePair } from '../../../shared/models';
 
 let KEY = 9;
 export function getKey(): string {

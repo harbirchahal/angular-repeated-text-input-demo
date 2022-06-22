@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
   NestedPairInputModule,
   RepeatedPairInputModule,
-} from '@app/shared/components';
+} from '../shared/components';
 import { NestedPairDemoComponent } from './nested-pair-demo';
 import { RepeatedPairDemoComponent } from './repeated-pair-demo';
 
