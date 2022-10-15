@@ -1,9 +1,9 @@
 import { Component, forwardRef, Input, OnInit } from '@angular/core';
 import {
   ControlValueAccessor,
-  UntypedFormBuilder,
-  UntypedFormControl,
-  UntypedFormGroup,
+  FormBuilder,
+  FormControl,
+  FormGroup,
   NG_VALUE_ACCESSOR,
 } from '@angular/forms';
 
@@ -38,11 +38,11 @@ export class RepeatedPairInputComponent
   inputChanged = (v: T[]) => {};
   inputTouched = () => {};
 
-  get controls(): UntypedFormControl[] {
-    return this.formArray.controls as UntypedFormControl[];
+  get controls(): FormControl[] {
+    return this.formArray.controls as FormControl[];
   }
 
-  constructor(readonly fb: UntypedFormBuilder) {
+  constructor(readonly fb: FormBuilder) {
     this.writeValue(null);
   }
 
@@ -71,7 +71,7 @@ export class RepeatedPairInputComponent
     this.inputTouched = fn;
   }
 
-  createItem(value: T = EMPTY): UntypedFormGroup {
+  createItem(value: T = EMPTY): FormGroup {
     return this.fb.group(value);
   }
 
